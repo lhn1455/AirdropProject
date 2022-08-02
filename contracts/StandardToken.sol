@@ -73,7 +73,7 @@ contract StandardToken is IERC20, Pausable, Ownable {
 
     /**
      * To increment allowed value is better to use this function.
-     * From MonolithDAO Token.sol
+     * From MonolithDAO AirToken.sol
      */
     function increaseApproval(address _spender, uint _addedValue) whenNotPaused public returns (bool) {
         allowed[msg.sender][_spender] = allowed[msg.sender][_spender]+_addedValue;
