@@ -1,15 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract IAirdrop {
+interface IAirdrop {
 
-    function doAirDrop(address payable [] calldata _address, uint256 _amount, uint256 _ethAmount)  external virtual returns (bool) {
-
-
-    }
-
-    function sendBath(address payable [] calldata _recipients, uint[] calldata _values) external virtual returns (bool) {
-
-    }
-
+    function doAirDrop(address payable [] calldata _address, uint256 _amount, uint256 _ethAmount)  external returns (bool success) ;
+    function sendBath(address payable [] calldata _recipients, uint[] calldata _values) external returns (bool success) ;
+    function destroyContract (address payable _contract) external;
 }
