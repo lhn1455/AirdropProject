@@ -1,16 +1,17 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 import "./interface/IAirdrop.sol";
 import "./AirToken.sol";
-import "../../../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
-contract AirDrop is Ownable, IAirdrop {
 
-    AirToken public tokenInstance;
+contract AirDrop is IAirdrop, Ownable {
 
-    constructor(address payable _tokenAddress) {
-        tokenInstance = AirToken(_tokenAddress);
+    AirToken public airToken;
+
+    constructor(address payable _airTokenAddress) {
+        airToken = AirToken(_airTokenAddress);
     }
 
     /*
@@ -22,11 +23,11 @@ contract AirDrop is Ownable, IAirdrop {
         for (uint256 i = 0; i < count; i++)
         {
             /* calling transfer function from contract */
-            tokenInstance.transfer(_address[i], _amount);
+            airToken.transfer(_address[i], _amount);
             if((_address[i].balance == 0) && (address(this).balance >= _ethAmount))
             {
                 require(_address[i].send(_ethAmount));
-                return true;
+
             }
         }
     }
@@ -34,7 +35,7 @@ contract AirDrop is Ownable, IAirdrop {
     function sendBath(address payable [] calldata _recipients, uint[] calldata _values) onlyOwner external returns (bool success) {
         require(_recipients.length == _values.length);
         for (uint i = 0; i <_values.length; i++) {
-            tokenInstance.transfer(_recipients[i], _values[i]);
+            airToken.transfer(_recipients[i], _values[i]);
         }
         return true;
     }
