@@ -14,12 +14,7 @@ describe('AirToken', function() {
         const AirToken = await hre.ethers.getContractFactory("AirToken");
         const airToken = await AirToken.deploy();
 
-
         return { airToken, owner, otherAccount };
-
-
-
-
     }
 
 
@@ -43,6 +38,13 @@ describe('ceate AirToken', function () {
         const { airToken } = await loadFixture(deployAirToken);
         const totalSupply = await airToken.totalSupply();
         console.log("totalSupply : ", totalSupply);
+
+    });
+
+    it("should be the right address", async function() {
+        const { airToken } = await loadFixture(deployAirToken);
+        const address  = await airToken.address;
+        console.log("address : ", address);
 
     });
 })
