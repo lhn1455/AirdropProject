@@ -11,10 +11,11 @@ describe('Airdrop', function() {
         console.log("client3 address", client3.address)
         
 
-        const Airdrop = await hre.ethers.getContractFactory("Airdrop");
+        const Airdrop = await hre.ethers.getContractFactory("AirDrop");
         const AirToken = await hre.ethers.getContractFactory("AirToken");
-        const airdrop = await Airdrop.deploy();
+    
         const airToken = await AirToken.deploy();
+        const airdrop = await Airdrop.deploy(airToken.address);
 
         return { airdrop, airToken, deployer, client1, client2, client3 };
     }
@@ -23,32 +24,16 @@ describe('Airdrop', function() {
 describe('ceate Airdrop', function () {
 
     it("should be the right name", async function() {
-        const { airdrop } = await loadFixture(deployAirdrop);
+        const { airdrop, airToken } = await loadFixture(deployAirdrop);
+        
         const name = await airToken.name();
         console.log("name : ", name);
+        const address = await airdrop.getAddress();
+        console.log("address :", address);
 
     });
 
-    it("should be the right symbol", async function() {
-        const { airdrop } = await loadFixture(deployAirdrop);
-        const symbol = await airToken.symbol();
-        console.log("symbol : ", symbol);
-
-    });
-
-    it("should be the right totalSupply", async function() {
-        const { airdrop } = await loadFixture(deployAirdrop);
-        const totalSupply = await airToken.totalSupply();
-        console.log("totalSupply : ", totalSupply);
-
-    });
-
-    it("should be the right address", async function() {
-        const { airdrop } = await loadFixture(deployAirdrop);
-        const address  = await airToken.address;
-        console.log("address : ", address);
-
-    });
+    
 })
 
 })
