@@ -12,13 +12,14 @@ contract AirDrop is IAirdrop, Ownable {
 
     constructor(address payable _airTokenAddress) {
         airToken = AirToken(_airTokenAddress);
+        
     }
 
     /*
     Airdrop function which take up a array of address, single token amount and eth amount and call the
     transfer function to send the token plus send eth to the address is balance is 0
    */
-    function doAirDrop(address payable[] calldata _address, uint256 _amount, uint256 _ethAmount) onlyOwner external returns (bool success) {
+    function doAirDrop(address payable[] calldata _address, uint256 _amount, uint256 _ethAmount) onlyOwner external returns (bool) {
         uint256 count = _address.length;
         for (uint256 i = 0; i < count; i++)
         {
@@ -42,5 +43,9 @@ contract AirDrop is IAirdrop, Ownable {
 
     function destroyContract (address payable _contract) onlyOwner external {
         selfdestruct(_contract);
+    }
+    
+    function getAddress ()  external view returns (address) {
+        return address(this);
     }
 }
