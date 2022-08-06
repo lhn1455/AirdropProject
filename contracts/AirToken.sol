@@ -16,7 +16,7 @@ contract AirToken is Context, IERC20, IERC20Metadata {
     constructor() {
         _name = "AirToken";
         _symbol = "AIR";
-        _mint(msg.sender, 100 * 10**uint(decimals()));
+        _mint(address(this), 100 * 10**uint(decimals()));
     }
 
     function name() public view virtual override returns (string memory) {
@@ -55,7 +55,7 @@ contract AirToken is Context, IERC20, IERC20Metadata {
      * - the caller must have a balance of at least `amount`.
      */
     function transfer(address to, uint256 amount) public virtual override returns (bool) {
-        address owner = _msgSender();
+        address owner = address(this);
         _transfer(owner, to, amount);
         return true;
     }
