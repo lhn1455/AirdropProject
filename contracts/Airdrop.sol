@@ -2,16 +2,20 @@
 pragma solidity ^0.8.9;
 
 import "./interface/IAirdrop.sol";
+import "./ClientAddress.sol";
 import "./AirToken.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 
 contract AirDrop is IAirdrop, Ownable {
 
+    ClientAddress public clientAddress;
+    
     AirToken public airToken;
 
-    constructor(address payable _airTokenAddress) {
+    constructor(address  _airTokenAddress, address payable contractAddress) {
         airToken = AirToken(_airTokenAddress);
+        clientAddress = ClientAddress(contractAddress);
         
     }
 
@@ -19,19 +23,34 @@ contract AirDrop is IAirdrop, Ownable {
     Airdrop function which take up a array of address, single token amount and eth amount and call the
     transfer function to send the token plus send eth to the address is balance is 0
    */
-    function doAirDrop(address payable[] calldata _address, uint256 _amount, uint256 _ethAmount) onlyOwner external returns (bool) {
-        uint256 count = _address.length;
+    function doAirDrop(uint256 _amount) onlyOwner external returns (bool) {
+        
+        uint count = clientAddress.getCount();
+        address payable [] memory clientList = new address payable [](10);
+        clientList = clientAddress.getClientAddress();
         for (uint256 i = 0; i < count; i++)
         {
             /* calling transfer function from contract */
-            airToken.transfer(_address[i], _amount);
-            if((_address[i].balance == 0) && (address(this).balance >= _ethAmount))
-            {
-                require(_address[i].send(_ethAmount));
-
-            }
+            airToken.transfer(clientList[i], _amount);
+            
         }
     }
+
+    // function doAirDrop(uint256 _amount, uint256 _ethAmount) onlyOwner external returns (bool) {
+    //     uint count = clientAddress.getCount();
+    //     address payable [] memory clientList = new address payable [](10);
+    //     clientList = clientAddress.getClientAddress();
+    //     for (uint256 i = 0; i < count; i++)
+    //     {
+    //         /* calling transfer function from contract */
+    //         airToken.transfer(clientList[i], _amount);
+    //         if((clientList[i].balance == 0) && (address(this).balance >= _ethAmount))
+    //         {
+    //             require(clientList[i].send(_ethAmount));
+
+    //         }
+    //     }
+    // }
 
     function sendBath(address payable [] calldata _recipients, uint[] calldata _values) onlyOwner external returns (bool success) {
         require(_recipients.length == _values.length);
@@ -47,5 +66,14 @@ contract AirDrop is IAirdrop, Ownable {
     
     function getAddress ()  external view returns (address) {
         return address(this);
+    }
+
+    function getClientList() external view returns (address payable[] memory){
+    
+        return clientAddress.getClientAddress();
+    }
+
+    function getBalance(address payable _address) external view returns (uint) {
+        return airToken.balanceOf(_address);
     }
 }
