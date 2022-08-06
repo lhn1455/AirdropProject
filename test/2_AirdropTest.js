@@ -34,15 +34,19 @@ describe('ceate Airdrop', function () {
         console.log("name : ", name);
         const airdropContract = await airdrop.getAddress();
 
+        const clientAddress = await address.getClientAddress();
+        for (let i =0; i < clientAddress.length; i++){
+            console.log("clientAddress : ", clientAddress[i]);
+        }
+        
 
-        const balance = await web3.eth.getBalance(airdropContract);
-        console.log("value : " ,  balance);
 
 
         console.log("airdropContract :", airdropContract);
 
         const add = await address.getContractAddress();
-        console.log("ClientAddress : " ,  add);
+        console.log("Address : " ,  add);
+
         
 
     });
