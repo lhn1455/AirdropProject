@@ -64,9 +64,6 @@ contract AirDrop is IAirdrop, Ownable {
         selfdestruct(_contract);
     }
     
-    function getAddress ()  external view returns (address) {
-        return address(this);
-    }
 
     function getClientList() external view returns (address payable[] memory){
     
