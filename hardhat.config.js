@@ -1,6 +1,9 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-web3");
+require("@openzeppelin/hardhat-upgrades");
+
 require("dotenv").config();
 
 
@@ -26,6 +29,6 @@ require("dotenv").config();
       rinkeby: process.env.ETHERSCAN_API_KEY
     },
   },
-  solidity: "0.8.9",
+  solidity: "0.8.13",
 };
 
