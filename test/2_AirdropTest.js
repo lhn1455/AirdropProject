@@ -22,48 +22,101 @@ describe('Airdrop', function() {
     }
 
 
-describe('ceate Airdrop', function () {
+describe('should do airdrop to 10 clientAddresses', function () {
 
-    it("should be the right name", async function() {
+    it("check the Address of clientAddress's Contract", async function() {
+        const [ deployer ] = await ethers.getSigners();
+        const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
+    
+        const clientAddressCA = await clientAddress.address;
+        console.log("clientAddressCA :", clientAddressCA);
+
+    });
+  
+
+
+     it("check the balance of airToken", async function() {
         const [ deployer ] = await ethers.getSigners();
         const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
         
-       
-        const name = await airToken.name();
-        console.log("name : ", name);
-        const client = await clientAddress.address;
-        console.log("client :", client);
-
-        // const balance = await airToken.balance;
-        // console.log("balance : ", balance);
-
+        // if blance is correct, airDrop and airToken is connected well 
         const balance = await airDrop.getBalance(airToken.address);
-        console.log("balance : ", balance);
-        
+        console.log("balance : ", balance);        
 
+    });    
+      
+       
+        
+    it("check the clientList from clientAddress's Contract", async function() {
+        const [ deployer ] = await ethers.getSigners();
+        const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
+        
         const clientList = await clientAddress.getClientAddress();
         for (let i =0; i < clientList.length; i++){
             console.log("clientList : ", clientList[i]);
         }
+    });
         
-        const count = await clientAddress.getCount();
-        console.log("count : ", count);
-
         
 
        
-        const clientList2 = await airDrop.getClientList();
+        // const balance2 = await airDrop.getBalance(clientList[3]);
+        // console.log("balance2 : " , balance2);
+        // const count = await clientAddress.getCount();
+        // console.log("count : ", count);
+
+        
+    it("check the clientLit from airDrop's Contract", async function() {
+        const [ deployer ] = await ethers.getSigners();
+        const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
+        
+        const clientList2 = await airDrop.getClientAddress();
         for (let i =0; i < clientList2.length; i++){
             console.log("clientListFromAirdop : ", clientList2[i]);
+            const balances = await airDrop.getBalance(clientList2[i]);
+            console.log("balances : ", balances)
          
         }
 
-        const result = await airToken._transfer(airToken.address,clientList2[2], 10)
-        console.log("result : ", result);
-        console.log("clientList2[2] : ", clientList2[2]);
+    });
+       
         
 
+        // const result = await airToken.transfer(clientList2[3], 777)
+        // console.log("result : ", result);
+        // console.log("clientList2[3] : ", clientList2[3]);
+        
+        // const balance3 = await airDrop.getBalance(clientList[3]);
+        // console.log("balance3 : " , balance3);
+
+        
+     it("do airDrop and check the balance after airdrop", async function() {
+        const [ deployer ] = await ethers.getSigners();
+        const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
+        
+        await airDrop.doAirDrop(15);
+        const clientList2 = await airDrop.getClientAddress();
+        for (let i =0; i < clientList2.length; i++){
+            console.log("clientListFromAirdop : ", clientList2[i]);
+            const balances = await airDrop.getBalance(clientList2[i]);
+            console.log("balances : ", balances)
+         
+        }
+    });  
+         
+       
+    it("check the balance of airToken's Contract after airdrop", async function() {
+        const [ deployer ] = await ethers.getSigners();
+        const { airDrop, airToken, clientAddress } = await loadFixture(deployAirdropContractSet);
+        
+        const balance0 = await airDrop.getBalance(airToken.address);
+        console.log("balance : ", balance0);
+
+
     });
+        
+       
+   
 
     
 })
