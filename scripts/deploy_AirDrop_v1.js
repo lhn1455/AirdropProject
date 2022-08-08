@@ -1,3 +1,4 @@
+
 const { ethers, upgrades } = require("hardhat");
 
 async function main() {
@@ -14,9 +15,9 @@ async function main() {
         initializer: "initialize",
     });
 
-    await airDrop.deployed();
+    await airdrop.deployed();
 
-    console.log("Proxy contract address (airDrop deployed to) : ", airDrop.address);
+    console.log("Proxy contract address (airDrop deployed to) : ", airdrop.address);
 
 }
 main();
