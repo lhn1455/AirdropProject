@@ -5,20 +5,26 @@ import "./interface/IAirdrop.sol";
 import "./ClientAddress.sol";
 import "./AirToken.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 
-contract AirDrop is IAirdrop, Ownable {
+contract AirDrop is IAirdrop, Ownable, Initializable {
 
     ClientAddress public clientAddress;
     
     AirToken public airToken;
 
-    constructor(address  _airTokenAddress, address payable contractAddress) {
+    // constructor(address  _airTokenAddress, address payable contractAddress) {
+    //     airToken = AirToken(_airTokenAddress);
+    //     clientAddress = ClientAddress(contractAddress);
+        
+    // }
+
+    function initialize (address _airTokenAddress, address payable contractAddress) public initializer {
+
         airToken = AirToken(_airTokenAddress);
         clientAddress = ClientAddress(contractAddress);
-        
     }
-
     /*
     Airdrop function which take up a array of address, single token amount and eth amount and call the
     transfer function to send the token plus send eth to the address is balance is 0
