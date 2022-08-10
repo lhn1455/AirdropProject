@@ -13,7 +13,8 @@ async function main() {
 
   const airToken = await AirToken.deploy();
   const clientAddress = await ClientAddress.deploy();
-  const airDrop = await AirDrop.deploy(airToken.address, clientAddress.address);
+  const airDrop = await AirDrop.deploy();
+  await airDrop.initialize(airToken.address, clientAddress.address);
 
   await airDrop.doAirDrop(15);
   const clientList2 = await airDrop.getClientAddress();
