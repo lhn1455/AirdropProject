@@ -1,10 +1,10 @@
-const hre = require("hardhat");
+
 const { ethers, upgrades } = require("hardhat");
 
 async function main() {
-    const AirToken = await hre.getContractFactory("AirToken");
-    const AirDrop = await hre.getContractFactory("AirDrop");
-    const ClientAddress = await hre.getContractFactory("ClientAddress");
+    const AirToken = await ethers.getContractFactory("AirToken");
+    const AirDrop = await ethers.getContractFactory("AirDrop");
+    const ClientAddress = await ethers.getContractFactory("ClientAddress");
 
     const airToken = await AirToken.deploy();
     const clientAddress = await ClientAddress.deploy();
