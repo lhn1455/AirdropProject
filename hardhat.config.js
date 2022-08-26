@@ -1,11 +1,9 @@
-
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-waffle");
-require("@openzeppelin/hardhat-upgrades");
 require("@nomiclabs/hardhat-web3");
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
-require("hardhat/config").HardhatUserConfig;
+require("@openzeppelin/hardhat-upgrades");
 require("dotenv").config();
 
 

@@ -1,0 +1,174 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x62fAda0F67Cc0BF4C1406e1C92758b13EB37103d",
+    "txHash": "0x997e8081012aecdf7b64c3a6b67a57cc5f56ecbc28fa173f663a6afc7f0cf006"
+  },
+  "proxies": [
+    {
+      "address": "0xaecfD134764a3d48242a62385a40731ac3643e8f",
+      "txHash": "0xec47eeea19fd696bdf5437203de0c65941ec5de0bf65aca7c1a0a421b660620c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "62febae2d655f9f50b2e3930043013e03160528cbed53cbb2ae76469c893923e": {
+      "address": "0xBE9cd4F1eF0914a763BFcA3bA40bE8d36F25149F",
+      "txHash": "0x3f4ae019c54c7c8917426e22a5f2a05b66a00d6b496dde80054448d2789a2120",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "AirDrop",
+            "src": "contracts/Airdrop.sol:11"
+          },
+          {
+            "label": "clientAddress",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_contract(ClientAddress)855",
+            "contract": "AirDrop",
+            "src": "contracts/Airdrop.sol:12"
+          },
+          {
+            "label": "airToken",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_contract(AirToken)555",
+            "contract": "AirDrop",
+            "src": "contracts/Airdrop.sol:13"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(AirToken)555": {
+            "label": "contract AirToken",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ClientAddress)855": {
+            "label": "contract ClientAddress",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "59e6f06c64c86fd633d85c9606b7bd9f3a7d401bb6ccd471d04252ea1ef99477": {
+      "address": "0x19F683e074ef5464172B5c089E1982c692c51cE1",
+      "txHash": "0x7a9571bad1a71e837d26a90d296fd3fbb05d3848b0f58367a4e9a6085b7e55ac",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "AirDropV2",
+            "src": "contracts/AirDropV2.sol:11"
+          },
+          {
+            "label": "clientAddress",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_contract(ClientAddress)1114",
+            "contract": "AirDropV2",
+            "src": "contracts/AirDropV2.sol:12"
+          },
+          {
+            "label": "airToken",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_contract(AirToken)814",
+            "contract": "AirDropV2",
+            "src": "contracts/AirDropV2.sol:13"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(AirToken)814": {
+            "label": "contract AirToken",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ClientAddress)1114": {
+            "label": "contract ClientAddress",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}
