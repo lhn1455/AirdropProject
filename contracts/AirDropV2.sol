@@ -5,8 +5,9 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "./ClientAddress.sol";
 import "./AirToken.sol";
+import "./interface/IAirdrop.sol";
 
-contract AirDropV2 is   Initializable{
+contract AirDropV2 is   Initializable, IAirdrop{
 
     mapping(address => uint256) private _balances; 
     ClientAddress public clientAddress;
