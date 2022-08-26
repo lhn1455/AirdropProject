@@ -25,7 +25,6 @@ async function main() {
         }
 
     console.log("Proxy contract address (AirDrop deployed to) : ", airDrop.address);
-    console.log("logicContract-AirDrop.sol address :  ", AirDrop.address )
     console.log("client : ", await airToken.name());
     console.log("Symbol : ", await airToken.symbol());
     console.log("totalSupply : ", await airToken.totalSupply());
