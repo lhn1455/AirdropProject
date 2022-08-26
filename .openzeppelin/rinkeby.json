@@ -1,20 +1,20 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0x62fAda0F67Cc0BF4C1406e1C92758b13EB37103d",
-    "txHash": "0x997e8081012aecdf7b64c3a6b67a57cc5f56ecbc28fa173f663a6afc7f0cf006"
+    "address": "0x7C2bEE665835380a839D629300526Cfd67880a69",
+    "txHash": "0x52044f48a027db36513085c56cb62d2644c00fc7b95fab092d68e8e3405ec2cd"
   },
   "proxies": [
     {
-      "address": "0xaecfD134764a3d48242a62385a40731ac3643e8f",
-      "txHash": "0xec47eeea19fd696bdf5437203de0c65941ec5de0bf65aca7c1a0a421b660620c",
+      "address": "0x80578d5d43FcFCe218F69ce8c200454Db6bbDDC5",
+      "txHash": "0x5d32bee98179366d03015615e734a880ba559596bffe24583bd481c1d83f4c9a",
       "kind": "transparent"
     }
   ],
   "impls": {
     "62febae2d655f9f50b2e3930043013e03160528cbed53cbb2ae76469c893923e": {
-      "address": "0xBE9cd4F1eF0914a763BFcA3bA40bE8d36F25149F",
-      "txHash": "0x3f4ae019c54c7c8917426e22a5f2a05b66a00d6b496dde80054448d2789a2120",
+      "address": "0xE65106E016E70d38bC9cc3D8eeea7fe5270f1cDa",
+      "txHash": "0x61dd5d16976d75e49c2cf473eb692b8109a0625631391fad3d9ea00a8bb79ccc",
       "layout": {
         "storage": [
           {
@@ -40,15 +40,15 @@
             "slot": "1",
             "type": "t_mapping(t_address,t_uint256)",
             "contract": "AirDrop",
-            "src": "contracts/Airdrop.sol:11"
+            "src": "contracts/Airdrop.sol:12"
           },
           {
             "label": "clientAddress",
             "offset": 0,
             "slot": "2",
-            "type": "t_contract(ClientAddress)855",
+            "type": "t_contract(ClientAddress)858",
             "contract": "AirDrop",
-            "src": "contracts/Airdrop.sol:12"
+            "src": "contracts/Airdrop.sol:13"
           },
           {
             "label": "airToken",
@@ -56,7 +56,7 @@
             "slot": "3",
             "type": "t_contract(AirToken)555",
             "contract": "AirDrop",
-            "src": "contracts/Airdrop.sol:13"
+            "src": "contracts/Airdrop.sol:14"
           }
         ],
         "types": {
@@ -72,7 +72,7 @@
             "label": "contract AirToken",
             "numberOfBytes": "20"
           },
-          "t_contract(ClientAddress)855": {
+          "t_contract(ClientAddress)858": {
             "label": "contract ClientAddress",
             "numberOfBytes": "20"
           },
@@ -92,8 +92,8 @@
       }
     },
     "59e6f06c64c86fd633d85c9606b7bd9f3a7d401bb6ccd471d04252ea1ef99477": {
-      "address": "0x19F683e074ef5464172B5c089E1982c692c51cE1",
-      "txHash": "0x7a9571bad1a71e837d26a90d296fd3fbb05d3848b0f58367a4e9a6085b7e55ac",
+      "address": "0xab5213c13D23f0C1785D0004faf0A2315306673C",
+      "txHash": "0x1692dbda98fbae6c6e3328347f3cdd3f998a97bb116bce4a05c8bd7545dd51ef",
       "layout": {
         "storage": [
           {
@@ -119,23 +119,23 @@
             "slot": "1",
             "type": "t_mapping(t_address,t_uint256)",
             "contract": "AirDropV2",
-            "src": "contracts/AirDropV2.sol:11"
+            "src": "contracts/AirDropV2.sol:12"
           },
           {
             "label": "clientAddress",
             "offset": 0,
             "slot": "2",
-            "type": "t_contract(ClientAddress)1114",
+            "type": "t_contract(ClientAddress)1120",
             "contract": "AirDropV2",
-            "src": "contracts/AirDropV2.sol:12"
+            "src": "contracts/AirDropV2.sol:13"
           },
           {
             "label": "airToken",
             "offset": 0,
             "slot": "3",
-            "type": "t_contract(AirToken)814",
+            "type": "t_contract(AirToken)817",
             "contract": "AirDropV2",
-            "src": "contracts/AirDropV2.sol:13"
+            "src": "contracts/AirDropV2.sol:14"
           }
         ],
         "types": {
@@ -147,11 +147,11 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(AirToken)814": {
+          "t_contract(AirToken)817": {
             "label": "contract AirToken",
             "numberOfBytes": "20"
           },
-          "t_contract(ClientAddress)1114": {
+          "t_contract(ClientAddress)1120": {
             "label": "contract ClientAddress",
             "numberOfBytes": "20"
           },
