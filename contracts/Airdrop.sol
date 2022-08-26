@@ -5,8 +5,9 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "./ClientAddress.sol";
 import "./AirToken.sol";
+import "./interface/IAirdrop.sol";
 
-contract AirDrop is   Initializable{
+contract AirDrop is   Initializable, IAirdrop{
 
     mapping(address => uint256) private _balances; 
     ClientAddress public clientAddress;
@@ -16,13 +17,7 @@ contract AirDrop is   Initializable{
 
     event Transfer(address indexed from, address indexed to, uint256 value);
 
-
-    // constructor(address payable contractAddress) {
-    //     clientAddress = ClientAddress(contractAddress);
-    // }
-    
-
-    function initialize (address payable _clientAddress, address payable _airToken) external  {
+    function initialize (address payable _clientAddress, address payable _airToken) external   {
         clientAddress = ClientAddress(_clientAddress);
         airToken = AirToken(_airToken);
     }
