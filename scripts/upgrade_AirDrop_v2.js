@@ -1,8 +1,10 @@
-// scripts/upgrade_box_v2.js
-
+const jsonData = require("../.openzeppelin/rinkeby.json");
 const { ethers, upgrades } = require("hardhat");
 
-const PROXY = "0xaecfD134764a3d48242a62385a40731ac3643e8f"; // 프록시 컨트랙트
+
+
+const PROXY = jsonData.proxies[0].address; // 프록시 컨트랙트
+console.log("proxy contract : ", jsonData.proxies[0].address);
 
 async function main() {
     const AirDropV2 = await ethers.getContractFactory("AirDropV2");
